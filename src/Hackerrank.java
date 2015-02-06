@@ -19,11 +19,13 @@ public class Hackerrank {
 		intList.add(30);
 
 		fillingJarsOuter();
+		halloweenParty(9);
+		alternating(s);
+		lonelyInteger(lonelyInt);
+		isFibo(5);
+		gameOfThrones(asd);
+		angryChildren(intList, 3);
 
-		/*
-		 * alternating(s); lonelyInteger(lonelyInt); isFibo(5);
-		 * gameOfThrones(asd); angryChildren(intList, 3);
-		 */
 	}
 
 	static void alternating(String s) {
@@ -133,30 +135,38 @@ public class Hackerrank {
 	public static void fillingJarsInner(ArrayList<Integer> intJarList,
 			int fromJar, int toJar, int howMuch) {
 		int elem;
-		for (int i = fromJar; i < toJar; i++) {
-			elem = intJarList.get(i);
+		for (int i = fromJar; i <= toJar; i++) {
+			elem = intJarList.get(i - 1);
 			elem += howMuch;
-			intJarList.set(i, elem);
+			intJarList.set(i - 1, elem);
 			elem = 0;
 		}
 	}
 
 	public static void fillingJarsOuter() {
 		ArrayList<Integer> intJarList = new ArrayList<Integer>();
-		int N = 5;
-		int B = 3;
+		int N = 20000;
+		int B = 1;
 		for (int i = 0; i < N; i++) {
 			intJarList.add(0);
 		}
 
 		for (int i = 0; i < B; i++) {
-			fillingJarsInner(intJarList, 2, 4, 100);
+			fillingJarsInner(intJarList, 1, 2000, 10000);
 		}
 		long osszeg = 0;
-		for(int elem : intJarList) {
+		for (int elem : intJarList) {
 			osszeg += intJarList.get(intJarList.indexOf(elem));
 		}
-		int answer = (int) (osszeg/B);
+		int answer = (int) (osszeg / N);
 		System.out.print(answer);
 	}
+
+	static void halloweenParty(double cuts) {
+		double half = cuts / 2;
+		long peices = (long) Math.pow(half, 2);
+		System.out.print(peices);
+
+	}
+
 }
