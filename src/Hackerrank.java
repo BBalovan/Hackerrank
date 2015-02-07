@@ -25,7 +25,7 @@ public class Hackerrank {
 		isFibo(5);
 		gameOfThrones(asd);
 		angryChildren(intList, 3);
-
+		sherlockAndSqares(3,9);
 	}
 
 	static void alternating(String s) {
@@ -167,6 +167,18 @@ public class Hackerrank {
 		long peices = (long) Math.pow(half, 2);
 		System.out.print(peices);
 
+	}
+	static void sherlockAndSqares(int minInput, int maxInput) {
+		int x = 0;
+		for (int i = minInput; i <= maxInput; i++) {
+			if (Math.sqrt(i) % 1 == 0) 	{
+				x++;
+				//System.out.println(i);
+				
+			}
+		}
+		System.out.println(x);
+		
 	}
 
 }
