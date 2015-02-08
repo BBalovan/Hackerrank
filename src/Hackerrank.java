@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.*;
 import java.util.Collections;
 
 public class Hackerrank {
@@ -18,14 +18,16 @@ public class Hackerrank {
 		intList.add(20);
 		intList.add(30);
 
-		fillingJarsOuter();
-		halloweenParty(9);
-		alternating(s);
-		lonelyInteger(lonelyInt);
-		isFibo(5);
-		gameOfThrones(asd);
-		angryChildren(intList, 3);
-		sherlockAndSqares(3,9);
+		// fillingJarsOuter();
+		// halloweenParty(9);
+		// alternating(s);
+		// lonelyInteger(lonelyInt);
+		// isFibo(5);
+		// gameOfThrones(asd);
+		// angryChildren(intList, 3);
+		// sherlockAndSqares(3, 9);
+		// findDigits(987654321);
+		cutTheSticks(3, 3);
 	}
 
 	static void alternating(String s) {
@@ -168,17 +170,56 @@ public class Hackerrank {
 		System.out.print(peices);
 
 	}
+
 	static void sherlockAndSqares(int minInput, int maxInput) {
 		int x = 0;
 		for (int i = minInput; i <= maxInput; i++) {
-			if (Math.sqrt(i) % 1 == 0) 	{
+			if (Math.sqrt(i) % 1 == 0) {
 				x++;
-				//System.out.println(i);
-				
+				// System.out.println(i);
+
 			}
 		}
 		System.out.println(x);
-		
+
 	}
 
+	static void cutTheSticks(int N, int A) {
+		ArrayList<Integer> stickLenght = new ArrayList<Integer>();
+	
+			stickLenght.add(5);
+			stickLenght.add(4);
+			stickLenght.add(4);
+			stickLenght.add(2);
+			stickLenght.add(2);
+			stickLenght.add(8);
+
+
+		cut(stickLenght);
+
+	}
+
+	static void cut(ArrayList<Integer> stickLenght) {
+		int min;
+		int sub;
+		int counter = 0;
+		for (int i = 0; i < stickLenght.size(); i++) {
+			min = Collections.min(stickLenght);
+			for (int j = 0; j < stickLenght.size(); j++) {
+				sub = stickLenght.get(j) - min;
+				if (sub >= 0) {
+					stickLenght.set(j, sub);
+					counter++;
+				}
+
+			}
+			for (int h = 0; h < stickLenght.size(); h++) {
+				if (stickLenght.indexOf(h) <= 0) {
+					stickLenght.remove(h);
+				}
+			}
+			System.out.println(counter);
+			counter = 0;
+		}
+	}
 }
